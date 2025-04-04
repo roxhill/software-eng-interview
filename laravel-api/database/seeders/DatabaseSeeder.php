@@ -45,12 +45,12 @@ class DatabaseSeeder extends Seeder
 
         // Create 50 articles for the special user to magnify the N+1 issue.
         $specialArticles = Article::factory()
-            ->count(2500)
+            ->count(500)
             ->create(['author_id' => $specialUser->id]);
 
         // Create 100 articles for random other users.
         $otherArticles = Article::factory()
-            ->count(850)
+            ->count(300)
             ->state(new Sequence(fn() => [
                 'author_id' => $otherUsers->random()->id,
             ]))
@@ -79,7 +79,7 @@ class DatabaseSeeder extends Seeder
 
         // Create 360 comments across articles.
         Comment::factory()
-            ->count(6500)
+            ->count(320)
             ->state(new Sequence(fn() => [
                 'article_id' => $articles->random()->id,
                 'author_id' => $users->random()->id,
