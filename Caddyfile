@@ -1,0 +1,11 @@
+swe-app.localhost {
+    tls internal
+
+    handle /api/* {
+        reverse_proxy http://swe-laravel.test
+    }
+
+    handle {
+        reverse_proxy http://swe-app:5173
+    }
+}
