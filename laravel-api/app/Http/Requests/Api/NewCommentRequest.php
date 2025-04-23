@@ -15,7 +15,7 @@ class NewCommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'body' => 'string',
+            'body' => '',
         ];
     }
 

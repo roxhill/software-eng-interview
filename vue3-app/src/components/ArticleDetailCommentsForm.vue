@@ -29,7 +29,6 @@
       <button
         aria-label="Submit"
         type="submit"
-        :disabled="comment === ''"
         class="btn btn-sm btn-primary"
       >
         Post Comment

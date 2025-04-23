@@ -23,30 +23,18 @@ for that you'll need [Docker](https://docs.docker.com/get-docker/) under Linux /
 
 ### Installation
 
-Install dependencies (if you have `composer` locally):
-
-    cd laravel-api
-    composer install
-
-Alternatively you can do the same with Docker:
-
-    docker run --rm -it \
-        --volume $PWD/laravel-api:/app \
-        --user $(id -u):$(id -g) \
-        composer install
-
 Start the containers with PHP application and PostgreSQL database:
 
-    ./laravel-api/vendor/bin/sail up -d
+    ./rig up -d
 
 Migrate the database with seeding:
 
-    ./laravel-api/vendor/bin/sail artisan migrate --seed
+    ./rig artisan migrate --seed
 
 ### Run tests
 
-    ./laravel-api/vendor/bin/sail artisan test
+    ./rig artisan test
 
 ### Run PHPStan static analysis
 
-    ./laravel-api/vendor/bin/sail php ./vendor/bin/phpstan
+    ./rig php ./vendor/bin/phpstan

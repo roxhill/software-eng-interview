@@ -34,16 +34,15 @@ class CommentsController extends Controller
      */
     public function create(NewCommentRequest $request, string $slug)
     {
-        $article = Article::whereSlug($slug)
-            ->firstOrFail();
+        $article = Article::whereSlug($slug)->firstOrFail();
 
         /** @var \App\Models\User $user */
         $user = $request->user();
 
         $comment = Comment::create([
             'article_id' => $article->getKey(),
-            'author_id' => $user->getKey(),
-            'body' => $request->input('comment.body'),
+            'author_id'  => $user->getKey(),
+            'body'       => $request->input('comment.body'),
         ]);
 
         return (new CommentResource($comment))
@@ -65,7 +64,7 @@ class CommentsController extends Controller
             ->firstOrFail();
 
         $comment = $article->comments()
-            ->findOrFail((int) $id);
+            ->findOrFail((int)$id);
 
         $this->authorize('delete', $comment);
 
