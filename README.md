@@ -26,6 +26,7 @@ for that you'll need [Docker](https://docs.docker.com/get-docker/) under Linux /
 Start the containers with PHP application and PostgreSQL database:
 
     ./rig up -d
+    ./rig composer install
 
 Migrate the database with seeding:
 
